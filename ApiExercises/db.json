@@ -1,214 +1,249 @@
 {
   "exercises": [
   {
+    "id": 1,
     "name": "Push-Up",
     "muscleInvolved": "Chest",
     "description": "A bodyweight exercise that targets the chest, shoulders, and triceps.",
-    "image": "https://example.com/images/push-up.jpg"
+    "image": "../backend/src/utils/pushup.webp"
   },
   {
+    "id": 2,
     "name": "Squat",
     "muscleInvolved": "Legs",
     "description": "A lower body exercise that targets the quadriceps, hamstrings, and glutes.",
-    "image": "https://example.com/images/squat.jpg"
+    "image": "../backend/src/utils/squat.jpeg"
   },
   {
+    "id": 3,
     "name": "Pull-Up",
     "muscleInvolved": "Back",
     "description": "An upper body exercise that targets the latissimus dorsi, biceps, and shoulders.",
-    "image": "https://example.com/images/pull-up.jpg"
+    "image": "../backend/src/utils/pullup.jpg"
   },
   {
+    "id": 4,
     "name": "Deadlift",
     "muscleInvolved": "Back",
     "description": "A compound exercise that targets the lower back, glutes, and hamstrings.",
-    "image": "https://example.com/images/deadlift.jpg"
+    "image": "../backend/src/utils/deadlift.jpg"
   },
   {
+    "id": 5,
     "name": "Bench Press",
     "muscleInvolved": "Chest",
     "description": "A compound exercise that targets the chest, shoulders, and triceps.",
-    "image": "https://example.com/images/bench-press.jpg"
+    "image": "../backend/src/utils/bench press.jpeg"
   },
   {
+    "id": 6,
     "name": "Bicep Curl",
     "muscleInvolved": "Biceps",
     "description": "An isolation exercise that targets the biceps.",
-    "image": "https://example.com/images/bicep-curl.jpg"
+    "image": "../backend/src/utils/bicep curl.jpeg"
   },
   {
+    "id": 7,
     "name": "Tricep Dip",
     "muscleInvolved": "Triceps",
     "description": "A bodyweight exercise that targets the triceps.",
-    "image": "https://example.com/images/tricep-dip.jpg"
+    "image": "../backend/src/utils/tricepdip.webp"
   },
   {
+    "id": 8,
     "name": "Lunge",
     "muscleInvolved": "Legs",
     "description": "A lower body exercise that targets the quadriceps, hamstrings, and glutes.",
-    "image": "https://example.com/images/lunge.jpg"
+    "image": "../backend/src/utils/lunge.jpg"
   },
   {
+    "id": 9,
     "name": "Shoulder Press",
     "muscleInvolved": "Shoulders",
     "description": "A compound exercise that targets the shoulders and triceps.",
-    "image": "https://example.com/images/shoulder-press.jpg"
+    "image": "../backend/src/utils/shoulder press.webp"
   },
   {
+    "id": 10,
     "name": "Plank",
     "muscleInvolved": "Core",
     "description": "A core exercise that targets the abdominals and lower back.",
-    "image": "https://example.com/images/plank.jpg"
+    "image": "../backend/src/utils/plank"
   },
   {
+    "id": 11,
     "name": "Leg Press",
     "muscleInvolved": "Legs",
     "description": "A lower body exercise that targets the quadriceps, hamstrings, and glutes.",
-    "image": "https://example.com/images/leg-press.jpg"
+    "image": "../backend/src/utils/legpress.webp"
   },
   {
+    "id": 12,
     "name": "Lat Pulldown",
     "muscleInvolved": "Back",
     "description": "An upper body exercise that targets the latissimus dorsi and biceps.",
-    "image": "https://example.com/images/lat-pulldown.jpg"
+    "image": "../backend/src/utils/lat pulldown.webp"
   },
   {
+    "id": 13,
     "name": "Calf Raise",
     "muscleInvolved": "Calves",
     "description": "An isolation exercise that targets the calves.",
-    "image": "https://example.com/images/calf-raise.jpg"
+    "image": "../backend/src/utils/calfraises.jpg"
   },
   {
+    "id": 14,
     "name": "Chest Fly",
     "muscleInvolved": "Chest",
     "description": "An isolation exercise that targets the chest.",
-    "image": "https://example.com/images/chest-fly.jpg"
+    "image": "../backend/src/utils/chest fly.jpg"
   },
   {
+    "id": 15,
     "name": "Leg Curl",
     "muscleInvolved": "Hamstrings",
     "description": "An isolation exercise that targets the hamstrings.",
-    "image": "https://example.com/images/leg-curl.jpg"
+    "image": "../backend/src/utils/leg curl.jpg"
   },
   {
+    "id": 16,
     "name": "Leg Extension",
     "muscleInvolved": "Quadriceps",
     "description": "An isolation exercise that targets the quadriceps.",
-    "image": "https://example.com/images/leg-extension.jpg"
+    "image": "../backend/src/utils/leg extension.jpeg"
   },
   {
+    "id": 17,
     "name": "Seated Row",
     "muscleInvolved": "Back",
     "description": "An upper body exercise that targets the back and biceps.",
-    "image": "https://example.com/images/seated-row.jpg"
+    "image": "../backend/src/utils/seated row.jpeg"
   },
   {
+    "id": 18,
     "name": "Russian Twist",
     "muscleInvolved": "Core",
     "description": "A core exercise that targets the obliques.",
-    "image": "https://example.com/images/russian-twist.jpg"
+    "image": "russian twist.webp"
   },
   {
+    "id": 19,
     "name": "Hip Thrust",
     "muscleInvolved": "Glutes",
     "description": "A lower body exercise that targets the glutes.",
-    "image": "https://example.com/images/hip-thrust.jpg"
+    "image": "hip thrust.webp"
   },
   {
+    "id": 20,
     "name": "Side Plank",
     "muscleInvolved": "Core",
     "description": "A core exercise that targets the obliques and lower back.",
-    "image": "https://example.com/images/side-plank.jpg"
+    "image": "side plank.jpg"
   },
   {
+    "id": 21,
     "name": "Mountain Climber",
     "muscleInvolved": "Core",
     "description": "A full-body exercise that targets the core, shoulders, and legs.",
-    "image": "https://example.com/images/mountain-climber.jpg"
+    "image": "mountain climber.jpg"
   },
   {
+    "id": 22,
     "name": "Burpee",
     "muscleInvolved": "Full Body",
     "description": "A full-body exercise that targets the chest, legs, and core.",
-    "image": "https://example.com/images/burpee.jpg"
+    "image": "burpee.jpg"
   },
   {
+    "id": 23,
     "name": "Dumbbell Row",
     "muscleInvolved": "Back",
     "description": "An upper body exercise that targets the back and biceps.",
-    "image": "https://example.com/images/dumbbell-row.jpg"
+    "image": "dumbell row.jpg"
   },
   {
+    "id": 24,
     "name": "Overhead Tricep Extension",
     "muscleInvolved": "Triceps",
     "description": "An isolation exercise that targets the triceps.",
-    "image": "https://example.com/images/overhead-tricep-extension.jpg"
+    "image": "overhead tricep extension.jpg"
   },
   {
+    "id": 25,
     "name": "Hammer Curl",
     "muscleInvolved": "Biceps",
     "description": "An isolation exercise that targets the biceps.",
-    "image": "https://example.com/images/hammer-curl.jpg"
+    "image": "hammer curl.webp"
   },
   {
+    "id": 26,
     "name": "Cable Crossover",
     "muscleInvolved": "Chest",
     "description": "An isolation exercise that targets the chest.",
-    "image": "https://example.com/images/cable-crossover.jpg"
+    "image": "cable crossover.jpg"
   },
   {
+    "id": 27,
     "name": "Face Pull",
     "muscleInvolved": "Shoulders",
     "description": "An upper body exercise that targets the rear deltoids and upper back.",
-    "image": "https://example.com/images/face-pull.jpg"
+    "image": "face pull.jpg"
   },
   {
+    "id": 28,
     "name": "Arnold Press",
     "muscleInvolved": "Shoulders",
     "description": "A compound exercise that targets the shoulders and triceps.",
-    "image": "https://example.com/images/arnold-press.jpg"
+    "image": "Arnold press.png"
   },
   {
+    "id": 29,
     "name": "Goblet Squat",
     "muscleInvolved": "Legs",
     "description": "A lower body exercise that targets the quadriceps, hamstrings, and glutes.",
-    "image": "https://example.com/images/goblet-squat.jpg"
+    "image": "goblet squat.jpg"
   },
   {
+    "id": 30,
     "name": "Romanian Deadlift",
     "muscleInvolved": "Hamstrings",
     "description": "A lower body exercise that targets the hamstrings and glutes.",
-    "image": "https://example.com/images/romanian-deadlift.jpg"
+    "image": "Romanian deadlift.jpg"
   },
   {
+    "id": 31,
     "name": "Chest Press Machine",
     "muscleInvolved": "Chest",
     "description": "A machine exercise that targets the chest, shoulders, and triceps.",
-    "image": "https://example.com/images/chest-press-machine.jpg"
+    "image": "chest press.jpg"
   },
   {
+    "id": 32,
     "name": "Leg Press Machine",
     "muscleInvolved": "Legs",
     "description": "A machine exercise that targets the quadriceps, hamstrings, and glutes.",
-    "image": "https://example.com/images/leg-press-machine.jpg"
+    "image": "leg press machine.jpg"
   },
   {
+    "id": 33,
     "name": "Cable Row",
     "muscleInvolved": "Back",
     "description": "An upper body exercise that targets the back and biceps.",
-    "image": "https://example.com/images/cable-row.jpg"
+    "image": "cable row.webp"
   },
   {
+    "id": 34,
     "name": "Tricep Pushdown",
     "muscleInvolved": "Triceps",
     "description": "An isolation exercise that targets the triceps.",
-    "image": "https://example.com/images/tricep-pushdown.jpg"
+    "image": "tricep push down.webp"
   },
   {
+    "id": 35,
     "name": "Preacher Curl",
     "muscleInvolved": "Biceps",
     "description": "An isolation exercise that targets the biceps.",
-    "image": "https://example.com/images/preacher-curl.jpg"
+    "image": "preacher curl.jpg"
   }
   ]
 }

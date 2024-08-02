@@ -3,16 +3,22 @@ const { DataTypes } = require('sequelize')
 const database = require('../db')
 
 module.exports = (database) =>{
-    database.define("Muscle",{
+    database.define("User",{
         id:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV4,
             primaryKey:true,
-            autoIncrement:true,
         },
         name:{
                 type:DataTypes.STRING,
                 unique:true
             },
+        email:{
+                    type:DataTypes.STRING,
+                },
+        image:{
+                type:DataTypes.STRING,
+                },
     },
     
     )

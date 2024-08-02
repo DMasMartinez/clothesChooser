@@ -3,10 +3,9 @@ const { DataTypes } = require('sequelize')
 const database = require('../db')
 
 module.exports = (database) =>{
-    database.define("Exercises",{
+    database.define("Exercise",{
         id:{
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4,
+            type: DataTypes.STRING,
             primaryKey:true,
         },
         name:{
@@ -18,7 +17,7 @@ module.exports = (database) =>{
                 },
         image:{
                 type:DataTypes.STRING,
-                },
+                }
     },
     
     )

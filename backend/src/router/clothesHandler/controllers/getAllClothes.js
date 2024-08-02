@@ -1,10 +1,9 @@
-
-const datosos = require("../../../utils/datos")
+const {Exercise} = require("../../../db")
 
 
 const getAllClothes = () =>{
-    const showperson = datosos
-    return showperson
+    const allgames = Exercise.findAll()
+    return allgames
 }
 
 module.exports = getAllClothes;
