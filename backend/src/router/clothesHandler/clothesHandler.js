@@ -5,10 +5,25 @@ const getAllClothes = require("./controllers/getAllClothes")
 const getExerciseById = require("./controllers/getExerciseById")
 const getExerciseByName = require("./controllers/getExerciseByName")
 
-clothesHandler.get("/", async(req,res)=>{
-    const allClothes = await getAllClothes()
-    res.status(200).json(getAllClothes)
+// clothesHandler.get("/", async(req,res)=>{
+//     try{
+//         const allClothes = await getAllClothes()
+//         res.status(200).json(getAllClothes)
+//     }catch(error){
+//         res.status(500).json({error:error.message})
+//     }
     
+    
+// })
+
+clothesHandler.get("/", async(req,res)=>{
+    try{
+        const {name} = req.query
+        const exerciseToShow = name?await getExerciseByName(name):await getAllClothes()
+        res.status(200).json(exerciseToShow)
+    }catch(error){
+        res.status(500).json({error:error.message})
+    }
 })
 
 clothesHandler.get("/:id", async(req,res)=>{
@@ -22,12 +37,6 @@ clothesHandler.get("/:id", async(req,res)=>{
    
 })
 
-clothesHandler.get("/", async(req,res)=>{
-    const {name} = req.query
-    const exerciseByName = getExerciseByName(name)
-    const exerciseToShow = name?getExerciseByName(name):getAllClothes()
-    res.status(200).json(exerciseToShow)
 
-})
 
 module.exports = clothesHandler;
