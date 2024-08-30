@@ -16,6 +16,10 @@ const {Exercise, Muscle, User} = database.models;
 
 Exercise.belongsToMany(Muscle,{through: "ExercisesMuscles"})
 Muscle.belongsToMany(Exercise,{through:"ExercisesMuscles"})
+
+User.hasMany(Exercise)
+Exercise.belongsTo(User)
+
 module.exports = {
     database,
     ...database.models

@@ -1,8 +1,16 @@
-const {Exercise} = require("../../../db")
+const {Exercise, Muscle} = require("../../../db")
 
 
 const getAllClothes = () =>{
-    const allgames = Exercise.findAll()
+    const allgames = Exercise.findAll({
+        include:{
+            model: Muscle,
+            attributes:["name"],
+            through:{
+                attributes:[]
+            }
+        }
+    })
     return allgames
 }
 
