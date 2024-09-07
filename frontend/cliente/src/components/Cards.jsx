@@ -1,6 +1,7 @@
 import Card from "./Card"
 
 const Cards = (props) =>{
+    
     function nextpage(){
         if ((props.array.lenght/props.qt)<props.page){
             props.setPage(props.page+1)
@@ -15,13 +16,17 @@ const Cards = (props) =>{
             props.setPage(props.page-1)
         }
     }
+    const firstval = (props.qt*props.page-props.qt)
+    const lastval = (props.qt*props.page)
     return (
         <div>
-            {props.array[0].slice(props.firstval,props.lastval).map((exercise,index)=>{
+            {props.array.length>0&&props.array[0].slice(props.firstval,props.lastval).map((exercise,index)=>{
                 return (
                     <div key={index}>
                         
                         <Card
+                            userShow = {props.userShow}
+                            exercise = {exercise}
                             id = {exercise.id}
                             name = {exercise.name}
                             muscleInvolved = {exercise.muscleInvolved}

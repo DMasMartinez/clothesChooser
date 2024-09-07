@@ -34,6 +34,15 @@ module.exports = (database) =>{
             type: DataTypes.FLOAT,
             allowNull:true
         },
+        body_type:{
+            type:DataTypes.STRING,
+            allowNull:true
+
+        },
+        objetives:{
+            type: DataTypes.STRING,
+            allowNull:true
+        },
         user_type: {
             type: DataTypes.ENUM("client", "admin"),
             defaultValue: "client",

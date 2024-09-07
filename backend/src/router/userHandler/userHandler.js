@@ -43,8 +43,8 @@ userHandler.get("/:id",async(req,res)=>{
 
 userHandler.post("/",async(req,res)=>{
     try{
-        const {name,email,image,idAuth0,weight,height,user_type} = req.body
-        const newuser = await createUser({name,email,image,idAuth0,weight,height,user_type})
+        const {name,email,image,idAuth0,weight,height,user_type,body_types,objetives} = req.body
+        const newuser = await createUser({name,email,image,idAuth0,weight,height,user_type,body_types,objetives})
         res.status(200).json(newuser)
     }catch(error){
         res.status(500).json({error:error.message})
@@ -52,11 +52,11 @@ userHandler.post("/",async(req,res)=>{
     
 })
 
-userHandler.put("/:id",(req,res)=>{
-    const {id} = req.params
+userHandler.put("/",(req,res)=>{
+    const {idAuth0} = req.query
     const user = req.body
     // const finduser = getUserById(id)
-    const newuser = modifyUser(id,user)
+    const newuser = modifyUser(idAuth0,user)
     res.status(200).json(newuser)
 })
 

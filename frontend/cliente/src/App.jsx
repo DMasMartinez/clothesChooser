@@ -34,13 +34,13 @@ function App() {
 
   return (
     <div className="App">
-      {location!=="/"&&<Navbar setUserShow = {setUserShow} userShow = {userShow}/>}
+      {location!=="/"&&<Navbar userShow={userShow}/>}
       <Routes>
         <Route
           path='/' element={<Landing/>}
         />
         <Route
-          path='/home' element={<Home ExercisesHome = {ExercisesHome}/>}
+          path='/home' element={<Home ExercisesHome = {ExercisesHome} userShow={userShow} setUserShow = {setUserShow}/>}
         />
         <Route
           path='/register' element = {<Register/>}

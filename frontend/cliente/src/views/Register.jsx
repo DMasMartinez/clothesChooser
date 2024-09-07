@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAsyncError } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
+import Validation from "../utils/Validation";
 
 const Register = () =>{
     const [weigh,setWeigh] = useState([])
@@ -7,6 +9,7 @@ const Register = () =>{
     const [checkedItems,setCheckedItems]=useState({})
     const bodies = ["Ectomorfo","Mesomorfo","Endomorfo"]
     const objetivos = ["get thinner", "get bulking", "define"]
+    const {user} = useAuth0()
     // arrayheight = [150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,199,200,201,202,203,204,205,206,207,208,209,210]
     function getweightheight(){
         const weighshow = []
@@ -18,7 +21,7 @@ const Register = () =>{
         setWeigh([...weighshow])
         setHeigh([...heighshow])
     }
-    const [user,setUser]=useState({
+    const [users,setUsers]=useState({
         height:"",
         weight:"",
         typeofbody:"",
@@ -35,16 +38,20 @@ const Register = () =>{
     },[])
     function changeinput(event){
         if (event.target.name==="height"){
-            setUser({...user,height:event.target.value})
+            setUsers({...users,height:event.target.value})
+            setError(Validation({...users,height:event.target.value}))
         }
         if (event.target.name==="weight"){
-            setUser({...user,weight:event.target.value})
+            setUsers({...users,weight:event.target.value})
+            setError(Validation({...users,weight:event.target.value}))
         }
         if (event.target.name==="typeofbody"){
-            setUser({...user,typeofbody:event.target.value})
+            setUsers({...users,typeofbody:event.target.value})
+            setError(Validation({...users,typeofbody:event.target.value}))
         }
         if (event.target.name==="objective"){
-            setUser({...user,objective:""})
+            setUsers({...users,objective:event.target.value})
+            setError(Validation({...users,objective:event.target.value}))
         }
     }
     function checkedhandler(event){
@@ -56,6 +63,13 @@ const Register = () =>{
 
     async function handlerSubmit(e){
         e.preventDefault()
+        const response = fetch(`http://localhost:3001/${user.sub}`,{
+            method:"PUT",
+            headers:{
+                "Content-Type":"application/json",
+            },
+            body: JSON.stringify(users)
+        })
     }
     console.log(bodies)
     return (
@@ -76,6 +90,7 @@ const Register = () =>{
                     )
                 }))}
                 </select>
+                {error.height!==""&&<span>{error.height}</span>}
                 <label htmlFor="weight">
                     Weight(kg):
                 </label>
@@ -88,20 +103,8 @@ const Register = () =>{
                     )
                 }))}
                 </select>
-                {/* <label htmlFor="typeofbody">
-                    Body:
-                </label>
-                <select name="typeofbody" type="string" value={user.height} onChange={changeinput}>
-                    <option>
-                        Ectomorfo
-                    </option>
-                    <option>
-                        Mesomorfo
-                    </option>
-                    <option>
-                        Endomorfo
-                    </option>
-                </select> */}
+                {error.weight!==""&&<span>{error.weight}</span>}
+             
                 <div>
                     <label>Type of Body:</label>
                     {bodies.map((bodie,indice)=>{
@@ -118,6 +121,7 @@ const Register = () =>{
                         )
                     })}
                 </div>
+                {error.typeofbody!==""&&<span>{error.typeofbody}</span>}
                 <div>
                     <label>Objectives:</label>
                     {objetivos.map((objetivo,indice)=>{
@@ -136,10 +140,7 @@ const Register = () =>{
                         )
                     })}
                 </div>
-                {/* <label htmlFor="height">
-                    Height:
-                </label>
-                <input name="objective" type="string" value={user.height} onChange={changeinput}/> */}
+                {error.objetive!==""&&<span>{error.objetive}</span>}
                 <button type="Submit">Submit</button>
             </form>
         </div>

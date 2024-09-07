@@ -1,7 +1,7 @@
 const {User} = require("../../../db")
-const getUserById = require("../controllers/getUserById")
+const getUserByAuth0 = require("../controllers/getUserByAuth0")
 const modifyUser = (id,usuario) => {
-    const usertomodify = getUserById(id)
+    const usertomodify = getUserByAuth0(id)
     if (usertomodify){
         const newuser = usertomodify.update(usuario)
         return newuser
@@ -9,3 +9,5 @@ const modifyUser = (id,usuario) => {
     throw new Error("user not found")
     
 }
+
+module.exports = modifyUser;

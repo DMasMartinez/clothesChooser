@@ -8,60 +8,42 @@ import axios from "axios"
 const Navbar = (props) => {
     const { isAuthenticated, isLoading, user } = useAuth0();
     const { loginWithRedirect, logout } = useAuth0();
-    
-    
-    
-    const saveUser = async () => {
-      try {
-        await axios.post('http://localhost:3001/user',{
-          idAuth0:user.sub,
-          name:user.name,
-          email:user.email,
-          image:user.picture
 
-        });
-        
-      } catch (error) {
-        console.error('Error al guardar el usuario:', error);
+    function formatuser(usuario){
+      const newobj = {
+        idAuth0:usuario.sub,
+          name:usuario.name,
+          email:usuario.email,
+          image:usuario.picture
+
       }
-    };
+      return newobj
+    }
+    
+
+    useEffect(()=>{
+      const saveUser = async () => {
+        try {
+          await axios.post('http://localhost:3001/user',{
+            idAuth0:user.sub,
+            name:user.name,
+            email:user.email,
+            image:user.picture
+  
+          });
+          
+        } catch (error) {
+          console.error('Error al guardar el usuario:', error);
+        }
+      };
+      if (isAuthenticated==true){
+        saveUser()
+      }
+    },[isAuthenticated]) 
 
     const uploadUser =async() => {
         await loginWithRedirect()
-        if (isAuthenticated){
-          saveUser()
-        }
-        // await subirfunction()
-        // if (isAuthenticated){
-        //     await subirfunction()
-        // }
     }
-
-    // useEffect(() => {
-        
-    //     if (isAuthenticated && user) {
-    //       const saveUser = async () => {
-    //         try {
-    //           await axios.post('http://localhost:3001/user',{
-    //             idAuth0:user.sub,
-    //             name:user.name,
-    //             email:user.email,
-    //             image:user.picture
-
-    //           });
-              
-    //         } catch (error) {
-    //           console.error('Error al guardar el usuario:', error);
-    //         }
-    //       };
-    
-    //       saveUser();
-    //     }
-    // }, [isAuthenticated, user]);
-    
-    //   if (isLoading) {
-    //     return <div>Loading...</div>;
-    //   }
     return (
         <div>
             {/* <pre>{JSON.stringify(user)}</pre> */}
@@ -71,7 +53,7 @@ const Navbar = (props) => {
             <Link to="/home">
                 <span>Home</span>
             </Link>
-            {user!==null&&<Link to="/register">
+            {props.userShow.height===""&&<Link to="/register">
                 <span>Register</span>
             </Link>}
             <Link to="/gallery">

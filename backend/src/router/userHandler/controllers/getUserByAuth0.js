@@ -1,4 +1,4 @@
-const {User} = require("../../../db")
+const {User,Exercise} = require("../../../db")
 
 const getUserByAuth0 = async(idAuth0) => {
     const usuario = await User.findOne({
