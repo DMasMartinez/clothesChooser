@@ -1,4 +1,5 @@
 import { useState } from "react"
+
 const Card = (props) =>{
     const [isfav,setIsfav] = useState(false)
 
@@ -18,7 +19,7 @@ const Card = (props) =>{
             headers:{
                 "Content-Type":"application/json",
             },
-            body: JSON.stringify(props.exercise)
+            body: JSON.stringify({"fav_name":props.exercise.name,"fav_description":props.exercise.description,"fav_image":props.exercise.image,"UserId":props.userShow.id})
         })
     }
     function handlerFavorite(){

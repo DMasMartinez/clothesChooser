@@ -22,7 +22,7 @@ module.exports = (database) =>{
         },
         fav_active:{
             type:DataTypes.ENUM("activo","inactivo"),
-            defaultValue:"inactivo",
+            defaultValue:"activo",
             allowNull:true
         }
     },

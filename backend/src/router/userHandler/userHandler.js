@@ -5,6 +5,7 @@ const createUser = require("./controllers/createUser")
 const getUserById = require("./controllers/getUserById")
 const getUserByName = require("./controllers/getUserByName")
 const getUserByAuth0 = require("./controllers/getUserByAuth0")
+const modifyUser = require("./controllers/modifyUser")
 const userHandler = Router()
 
 userHandler.get("/",async(req,res)=>{
@@ -52,11 +53,11 @@ userHandler.post("/",async(req,res)=>{
     
 })
 
-userHandler.put("/",(req,res)=>{
+userHandler.put("/",async(req,res)=>{
     const {idAuth0} = req.query
     const user = req.body
     // const finduser = getUserById(id)
-    const newuser = modifyUser(idAuth0,user)
+    const newuser = await modifyUser(idAuth0,user)
     res.status(200).json(newuser)
 })
 

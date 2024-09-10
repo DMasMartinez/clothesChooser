@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { useAsyncError } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Validation from "../utils/Validation";
+import axios from "axios";
 
 const Register = () =>{
     const [weigh,setWeigh] = useState([])
     const [heigh,setHeigh] = useState([])
     const [checkedItems,setCheckedItems]=useState({})
+    const [cuerpos,setCuerpos] = useState("")
+    const [objetivo,setObjetivo] = useState("")
     const bodies = ["Ectomorfo","Mesomorfo","Endomorfo"]
     const objetivos = ["get thinner", "get bulking", "define"]
     const {user} = useAuth0()
@@ -46,12 +49,26 @@ const Register = () =>{
             setError(Validation({...users,weight:event.target.value}))
         }
         if (event.target.name==="typeofbody"){
-            setUsers({...users,typeofbody:event.target.value})
-            setError(Validation({...users,typeofbody:event.target.value}))
+            // setUsers({...users,typeofbody:event.target.value})
+            // setError(Validation({...users,typeofbody:event.target.value}))
+            if (event.target.checked===true){
+                setCuerpos(event.target.value)
+                setUsers({...users,typeofbody:cuerpos})
+                setError(Validation({...users,typeofbody:cuerpos}))
+            }else{
+                setUsers({...users,typeofbody:""})
+            }
         }
         if (event.target.name==="objective"){
-            setUsers({...users,objective:event.target.value})
-            setError(Validation({...users,objective:event.target.value}))
+            if (event.target.checked===true){
+                setObjetivo(event.target.value)
+                setUsers({...users,objective:objetivo})
+                setError(Validation({...users,objective:objetivo}))
+            }else{
+                setUsers({...users,objective:""})
+            }
+            // setUsers({...users,objective:event.target.value})
+            // setError(Validation({...users,objective:event.target.value}))
         }
     }
     function checkedhandler(event){
@@ -63,19 +80,30 @@ const Register = () =>{
 
     async function handlerSubmit(e){
         e.preventDefault()
-        const response = fetch(`http://localhost:3001/${user.sub}`,{
-            method:"PUT",
-            headers:{
-                "Content-Type":"application/json",
-            },
-            body: JSON.stringify(users)
-        })
+        try {
+            console.log(users);
+            const response = await fetch(`http://localhost:3001/user/?idAuth0=${user.sub}`,{
+                method:"PUT",
+                headers:{
+                    "Content-Type":"application/json",
+                },
+                body: JSON.stringify(users)
+            });
+      
+            if (response.ok) {
+              const nuevoRegistro = await response.json();
+              console.log("Registro creado con éxito:", nuevoRegistro);
+            } else {
+              console.error("Error al crear el registro:", response.statusText);
+            }
+          } catch (error) {
+            console.error("Error al enviar la solicitud:", error);
+          }
     }
-    console.log(bodies)
     return (
         <div>
             <h2>Advance Settings</h2>
-            <form onSubmit={handlerSubmit}>
+            <form onSubmit={handlerSubmit} action="submit">
                 <label htmlFor="height">
                     Height(cm):
                 </label>
@@ -112,9 +140,10 @@ const Register = () =>{
                             <div key={indice}>
                                 <input
                                     type="checkbox"
-                                    name={bodie}
-                                    checked={checkedItems[bodie]||false}
+                                    name="typeofbody"
+                                    value={bodie}
                                     onChange={checkedhandler}
+                                    checked={checkedItems[bodie]||false}
                                 />
                                 <label>{bodie}</label>
                             </div>
@@ -129,9 +158,10 @@ const Register = () =>{
                         <div key={indice}>
                             <input
                                 type="checkbox"
-                                name={objetivo}
-                                checked={checkedItems[objetivo]||false}
+                                name="objective"
+                                value={objetivo}
                                 onChange={checkedhandler}
+                                checked={checkedItems[objetivo]||false}
                             />
                             <label>
                                 {objetivo}

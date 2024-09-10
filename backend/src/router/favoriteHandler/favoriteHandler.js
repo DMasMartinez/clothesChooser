@@ -21,8 +21,8 @@ favoriteHandler.post("/",async(req,res)=>{
 })
 
 favoriteHandler.put("/",(req,res)=>{
-    const {fav_name,fav_description,fav_image} = req.body
-    const desactive = desactiveFav({fav_name,fav_description,fav_image})
+    const {fav_name,UserId} = req.body
+    const desactive = desactiveFav({fav_name,UserId})
     res.status(200).json(desactive)
 })
 
